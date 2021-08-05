@@ -1,0 +1,27 @@
+{
+    "python": {
+        "installed": false
+    },
+    "script": {
+        "executing": false
+    },
+    "GUI": {
+        "session_type": "normal",
+        "language": "en",
+        "game": {
+            "language": "es",
+            "server": "lan"
+        },
+        "game_directory": "C:/Riot Games/League of Legends",
+        "account_keys": [
+            "f1",
+            "f2",
+            "f3",
+            "f4",
+            "f5",
+            "f6",
+            "f7",
+            "f8"
+        ]
+    }
+}
