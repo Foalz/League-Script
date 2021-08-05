@@ -28,3 +28,5 @@ C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\bin\Debug\net5.0-windows\IronPython.SQL
 C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\bin\Debug\net5.0-windows\IronPython.Wpf.dll
 C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\bin\Debug\net5.0-windows\IronPython.dll
 C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Debug\net5.0-windows\LC_GUI.csproj.CopyComplete
+C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Debug\net5.0-windows\Manage_Accs.g.cs
+C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Debug\net5.0-windows\Manage_Accs.baml

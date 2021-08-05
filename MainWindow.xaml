@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LC_GUI"
         mc:Ignorable="d"
-        Title="League Client" Height="450" Width="800">
+        Title="League Client" Height="450" Width="800"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="125*"/>
@@ -14,11 +15,21 @@
         <Grid.Background>
             <ImageBrush ImageSource="/background.jpg" Opacity="1"/>
         </Grid.Background>
-        <Button Name ="Execute" Content="Execute League" FontSize="30" Margin="160,135,285,199" Click="Button_Click" Background="White" BorderThickness="1,1,1,1" RenderTransformOrigin="0,0" UseLayoutRounding="False" Grid.Column="1" >
+        <Button Name ="Execute" Content="Execute League" FontSize="30" Margin="160,92,285,254" Click="Execute_Button" Background="White" BorderThickness="1,1,1,1" RenderTransformOrigin="0,0" UseLayoutRounding="False" Grid.Column="1" >
             <Button.Style>
                 <Style/>
             </Button.Style>
         </Button>
+        <Menu Margin="122,250,122,66" Grid.ColumnSpan="2">
+            <TextBlock Text="&#x9;Game Language&#x9;&#x9;&#x9;&#x9;&#x9;Game Server" TextWrapping="Wrap" Width="545"/>
+        </Menu>
+        <CheckBox Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="63,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <CheckBox Content="Spanish" Grid.Column="1" HorizontalAlignment="Left" Margin="63,312,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <CheckBox Content="NA" Grid.Column="1" HorizontalAlignment="Left" Margin="337,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <CheckBox Content="LAN" Grid.Column="1" HorizontalAlignment="Left" Margin="337,308,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <CheckBox Content="EUW" Grid.Column="1" HorizontalAlignment="Left" Margin="397,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <Button Name ="Manage" Content="Manage Accounts" Grid.Column="1" HorizontalAlignment="Left" Margin="204,196,0,0" VerticalAlignment="Top" Height="21" Width="133" Click="Manage_Accs_Button"/>
+
 
 
 

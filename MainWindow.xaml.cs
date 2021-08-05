@@ -29,18 +29,17 @@ namespace LC_GUI
             InitializeComponent();
             Execute.Focusable = false;
             Execute.IsEnabled = true;
-            Debug.WriteLine(Directory.GetCurrentDirectory());
 
 
         }
 
-        public void Execute_Program(string filePath, string button_state, Process process)
+        public void Execute_Scripts(string filePath, string button_state, Process process)
         {      
             process.Start();
             Execute.Content = "Close the script";
         }
 
-        public void Button_Click(object sender, RoutedEventArgs e)
+        public void Execute_Button(object sender, RoutedEventArgs e)
         {
             var filePath = $@"scripts\main.py";
             var button_state = Execute.Content.ToString();
@@ -56,7 +55,7 @@ namespace LC_GUI
                     process.StartInfo.UseShellExecute = true;
                     process.StartInfo.ErrorDialog = true;
                     process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    Execute_Program(filePath, button_state, process);
+                    Execute_Scripts(filePath, button_state, process);
                }
 
                else if (button_state == "Close the script")
@@ -79,6 +78,23 @@ namespace LC_GUI
             }
 
 
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Manage_Accs_Button(object sender, RoutedEventArgs e)
+        {
+            Manage.IsEnabled = false;
+            Manage_Accs window = new Manage_Accs();
+            window.Show();   
         }
     }
 }
