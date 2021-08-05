@@ -1,0 +1,12 @@
+C:\Users\byvm0\Desktop\LC_Released\LC_GUI.exe
+C:\Users\byvm0\Desktop\LC_Released\LC_GUI.dll
+C:\Users\byvm0\Desktop\LC_Released\LC_GUI.deps.json
+C:\Users\byvm0\Desktop\LC_Released\LC_GUI.runtimeconfig.json
+C:\Users\byvm0\Desktop\LC_Released\LC_GUI.pdb
+C:\Users\byvm0\Desktop\LC_Released\Microsoft.Dynamic.dll
+C:\Users\byvm0\Desktop\LC_Released\Microsoft.Scripting.Metadata.dll
+C:\Users\byvm0\Desktop\LC_Released\Microsoft.Scripting.dll
+C:\Users\byvm0\Desktop\LC_Released\IronPython.Modules.dll
+C:\Users\byvm0\Desktop\LC_Released\IronPython.SQLite.dll
+C:\Users\byvm0\Desktop\LC_Released\IronPython.Wpf.dll
+C:\Users\byvm0\Desktop\LC_Released\IronPython.dll
