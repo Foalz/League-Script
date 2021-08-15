@@ -10,3 +10,4 @@ C:\Users\byvm0\Desktop\LC_Released\IronPython.Modules.dll
 C:\Users\byvm0\Desktop\LC_Released\IronPython.SQLite.dll
 C:\Users\byvm0\Desktop\LC_Released\IronPython.Wpf.dll
 C:\Users\byvm0\Desktop\LC_Released\IronPython.dll
+C:\Users\byvm0\Desktop\LC_Released\Newtonsoft.Json.dll

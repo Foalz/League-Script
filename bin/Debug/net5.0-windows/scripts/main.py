@@ -1,6 +1,5 @@
 import json
 import execute_client
-import time
 import os
 
 try:

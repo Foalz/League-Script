@@ -28,3 +28,8 @@ C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\LC_GUI.dll
 C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\ref\LC_GUI.dll
 C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\LC_GUI.pdb
 C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\LC_GUI.genruntimeconfig.cache
+C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\bin\Release\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\Manage_Accs.g.cs
+C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\Settings.g.cs
+C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\Manage_Accs.baml
+C:\Users\byvm0\Desktop\LC_Patcher\LC_GUI\obj\Release\net5.0-windows\Settings.baml

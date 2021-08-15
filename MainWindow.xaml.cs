@@ -16,6 +16,7 @@ using System.IO;
 using System.Diagnostics;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
+using Newtonsoft.Json;
 
 namespace LC_GUI
 {
@@ -25,16 +26,93 @@ namespace LC_GUI
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {       
+        {
+
             InitializeComponent();
-            Execute.Focusable = false;
-            Execute.IsEnabled = true;
+            Manage.IsEnabled = false;
+            Settings.IsEnabled = false;
+            ReadConfigJson();
 
 
         }
 
-        public void Execute_Scripts(string filePath, string button_state, Process process)
-        {      
+
+        private void ReadConfigJson()
+        {
+            dynamic jsonread = JsonConvert.DeserializeObject(File.ReadAllText($@"config\config.json"));
+            Dictionary<string, CheckBox> server_dict = new Dictionary<string, CheckBox>()
+            {
+                { "na", NA },
+                { "lan", LAN },
+                { "euw", EUW }
+
+            };
+
+            Dictionary<string, CheckBox> language_dict = new Dictionary<string, CheckBox>()
+            {
+                { "en", EN },
+                { "es", ES }
+
+            };
+
+            foreach (string language in language_dict.Keys)
+            {
+                if (language == Convert.ToString(jsonread["GUI"]["game"]["language"]))
+                {
+                    language_dict[language].IsChecked = true;
+                }
+            }
+
+            foreach (string server in server_dict.Keys)
+            {
+                if (server == Convert.ToString(jsonread["GUI"]["game"]["server"]))
+                {
+                    server_dict[server].IsChecked = true;
+                }
+            }
+
+            Debug.WriteLine($"Game language: {jsonread["GUI"]["game"]["language"]}");
+            
+        }
+
+        private void Execute_Scripts(string filePath, string button_state, Process process)
+        {
+            
+            dynamic jsonread = JsonConvert.DeserializeObject(File.ReadAllText($@"config\config.json"));
+            Dictionary<string, string> server_dict = new Dictionary<string, string>()
+            {
+                { "NA", "na"},
+                { "LAN", "lan" },
+                { "EUW", "euw" }
+
+            };
+
+            Dictionary<string, string> language_dict = new Dictionary<string, string>()
+            {
+                { "English",  "en" } ,
+                { "Spanish",  "es" } 
+
+            };
+
+
+            foreach (CheckBox language in new List<CheckBox>{ EN, ES })
+            {
+                if (language.IsChecked == true)
+                {
+                    jsonread["GUI"]["game"]["language"] = language_dict[Convert.ToString(language.Content)];
+                }
+            }
+
+            foreach (CheckBox server in new List<CheckBox> { NA, LAN, EUW })
+            {
+                if (server.IsChecked == true)
+                {
+                    jsonread["GUI"]["game"]["server"] = server_dict[Convert.ToString(server.Content)];
+                }
+            }
+            string jsonwrite = JsonConvert.SerializeObject(jsonread, Formatting.Indented);
+            File.WriteAllText($@"config\config.json", jsonwrite);
+
             process.Start();
             Execute.Content = "Close the script";
         }
@@ -49,7 +127,6 @@ namespace LC_GUI
                if (button_state == "Execute League")
                {
                     Process process = new Process();
-                    Debug.WriteLine(filePath);
                     process.StartInfo.FileName = "python.exe";
                     process.StartInfo.Arguments = filePath;
                     process.StartInfo.UseShellExecute = true;
@@ -74,27 +151,59 @@ namespace LC_GUI
 
             catch
             {
-                Debug.WriteLine(filePath);
+                
             }
 
 
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private void CheckBox_Servers(object sender, RoutedEventArgs e)
         {
+        
+            CheckBox[] server_list = { NA, LAN, EUW };
+            
+
+            foreach (var i in server_list)
+            {
+                if (sender != i)
+                {
+                    i.IsChecked = false;
+                }
+            }
+
 
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void CheckBox_Languages(object sender, RoutedEventArgs e)
         {
+            CheckBox[] language_list = {EN, ES};
+
+            foreach (var i in language_list)
+            {
+                if (sender != i)
+                {
+                    i.IsChecked = false;
+                }
+            }
+
+
 
         }
 
         private void Manage_Accs_Button(object sender, RoutedEventArgs e)
-        {
-            Manage.IsEnabled = false;
-            Manage_Accs window = new Manage_Accs();
-            window.Show();   
+        {   
+
+            //Manage_Accs window = new Manage_Accs();
+            //window.Show();   
         }
+
+        private void Settings_Button(object sender, RoutedEventArgs e)
+        {
+            
+            //Settings window = new Settings();
+            //window.Show();       
+            
+        }
+
     }
 }

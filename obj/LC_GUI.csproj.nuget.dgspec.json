@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[2.7.11, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "System.Dynamic.Runtime": {
               "target": "Package",
               "version": "[4.3.0, )"
@@ -67,7 +71,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WPF": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },

@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:LC_GUI"
         mc:Ignorable="d"
         Title="League Client" Height="450" Width="800"
-        ResizeMode="NoResize">
+        ResizeMode="CanMinimize"
+        >
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="125*"/>
@@ -23,12 +25,13 @@
         <Menu Margin="122,250,122,66" Grid.ColumnSpan="2">
             <TextBlock Text="&#x9;Game Language&#x9;&#x9;&#x9;&#x9;&#x9;Game Server" TextWrapping="Wrap" Width="545"/>
         </Menu>
-        <CheckBox Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="63,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-        <CheckBox Content="Spanish" Grid.Column="1" HorizontalAlignment="Left" Margin="63,312,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-        <CheckBox Content="NA" Grid.Column="1" HorizontalAlignment="Left" Margin="337,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-        <CheckBox Content="LAN" Grid.Column="1" HorizontalAlignment="Left" Margin="337,308,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-        <CheckBox Content="EUW" Grid.Column="1" HorizontalAlignment="Left" Margin="397,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-        <Button Name ="Manage" Content="Manage Accounts" Grid.Column="1" HorizontalAlignment="Left" Margin="204,196,0,0" VerticalAlignment="Top" Height="21" Width="133" Click="Manage_Accs_Button"/>
+        <CheckBox Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="63,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Languages"/>
+        <CheckBox Name="ES" Content="Spanish" Grid.Column="1" HorizontalAlignment="Left" Margin="63,312,0,0" VerticalAlignment="Top" Checked="CheckBox_Languages"/>
+        <CheckBox Name="NA" Content="NA" Grid.Column="1" HorizontalAlignment="Left" Margin="337,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Servers"/>
+        <CheckBox Name="LAN" Content="LAN" Grid.Column="1" HorizontalAlignment="Left" Margin="337,308,0,0" VerticalAlignment="Top" Checked="CheckBox_Servers"/>
+        <CheckBox Name="EUW" Content="EUW" Grid.Column="1" HorizontalAlignment="Left" Margin="397,281,0,0" VerticalAlignment="Top" Checked="CheckBox_Servers"/>
+        <Button Name ="Manage" Content="Manage Accounts" Grid.Column="1" HorizontalAlignment="Left" Margin="103,196,0,0" VerticalAlignment="Top" Height="21" Width="133" Click="Manage_Accs_Button"/>
+        <Button Name ="Settings" Content="Settings" Grid.Column="1" HorizontalAlignment="Left" Margin="309,196,0,0" VerticalAlignment="Top" Height="21" Width="133" Click="Settings_Button"/>
 
 
 

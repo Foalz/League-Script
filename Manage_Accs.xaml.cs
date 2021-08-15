@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,31 @@ namespace LC_GUI
         public Manage_Accs()
         {
             InitializeComponent();
+            var a = IsActiveProperty;
+
+            
+
+
+
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Closed");
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
