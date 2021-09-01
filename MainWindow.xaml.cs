@@ -22,6 +22,27 @@ namespace LC_GUI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// 
+    /// Executes the component, then it reads json file
+    /// to update checkboxes based on json information
+    /// 
+    /// If execute league button is pressed
+    ///     {
+    ///         If the main.py script is not executed
+    ///         {
+    ///             Creates a new process, read json file and
+    ///             modifies it based on the main window information,
+    ///             and then executes the process (python.exe that executes
+    ///             main.py file).
+    ///         }
+    ///         
+    ///         else 
+    ///         {
+    ///             Kills the python.exe process.
+    ///         }
+    ///     }
+    ///     
+    /// Check boxes can only be clicked one by one.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -39,6 +60,8 @@ namespace LC_GUI
 
         private void ReadConfigJson()
         {
+            //This function reads the initial configurations of the json file, and updates the program
+            //checkboxes based on this information. We are storing all the necessary info in dictionaries.
             dynamic jsonread = JsonConvert.DeserializeObject(File.ReadAllText($@"config\config.json"));
             Dictionary<string, CheckBox> server_dict = new Dictionary<string, CheckBox>()
             {
@@ -55,6 +78,7 @@ namespace LC_GUI
 
             };
 
+            //These loops updates checkboxes with start info.
             foreach (string language in language_dict.Keys)
             {
                 if (language == Convert.ToString(jsonread["GUI"]["game"]["language"]))
@@ -77,7 +101,8 @@ namespace LC_GUI
 
         private void Execute_Scripts(string filePath, string button_state, Process process)
         {
-            
+            //This function reads again the json file, with the purpose to be modified, to execute
+            //the script and the game with desired configuration.
             dynamic jsonread = JsonConvert.DeserializeObject(File.ReadAllText($@"config\config.json"));
             Dictionary<string, string> server_dict = new Dictionary<string, string>()
             {
@@ -94,7 +119,8 @@ namespace LC_GUI
 
             };
 
-
+            //These loops are checking what checkboxes are checked, and modifies the content of the
+            //json file
             foreach (CheckBox language in new List<CheckBox>{ EN, ES })
             {
                 if (language.IsChecked == true)
@@ -110,20 +136,27 @@ namespace LC_GUI
                     jsonread["GUI"]["game"]["server"] = server_dict[Convert.ToString(server.Content)];
                 }
             }
+
+            //Finally, we are writting in the json file the new configuration to be read by 
+            //python scripts
             string jsonwrite = JsonConvert.SerializeObject(jsonread, Formatting.Indented);
             File.WriteAllText($@"config\config.json", jsonwrite);
 
-            process.Start();
+            //Starts python script
+            process.Start(); 
             Execute.Content = "Close the script";
         }
 
         public void Execute_Button(object sender, RoutedEventArgs e)
         {
+            //Defining the main script directory
             var filePath = $@"scripts\main.py";
             var button_state = Execute.Content.ToString();
 
             try 
             {  
+               //If the content of the button is "Execute League" it means the script
+               //is not executed yet, so it proceeds to execute main.py script when is pressed.
                if (button_state == "Execute League")
                {
                     Process process = new Process();
@@ -135,6 +168,8 @@ namespace LC_GUI
                     Execute_Scripts(filePath, button_state, process);
                }
 
+               //In other case, if the content of the button is "Close the script" it means the
+               //python script is already running, so this button kills the python.exe process
                else if (button_state == "Close the script")
                {
                     foreach (var newprocess in Process.GetProcessesByName("Python"))
@@ -151,7 +186,7 @@ namespace LC_GUI
 
             catch
             {
-                
+                //Do nothing
             }
 
 
@@ -161,8 +196,8 @@ namespace LC_GUI
         {
         
             CheckBox[] server_list = { NA, LAN, EUW };
-            
 
+            //Updating dinamically checkboxes, only one can be selected.
             foreach (var i in server_list)
             {
                 if (sender != i)
@@ -176,8 +211,9 @@ namespace LC_GUI
 
         private void CheckBox_Languages(object sender, RoutedEventArgs e)
         {
-            CheckBox[] language_list = {EN, ES};
 
+            CheckBox[] language_list = {EN, ES};
+            //Updating dinamically checkboxes, only one can be selected.
             foreach (var i in language_list)
             {
                 if (sender != i)
@@ -190,6 +226,9 @@ namespace LC_GUI
 
         }
 
+
+        /* External windows, currently not working
+  
         private void Manage_Accs_Button(object sender, RoutedEventArgs e)
         {   
 
@@ -204,6 +243,6 @@ namespace LC_GUI
             //window.Show();       
             
         }
-
+        */
     }
 }

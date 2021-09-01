@@ -3,6 +3,8 @@ from login import login_screen
 
 class Execute_Program:
 
+    
+
     def __init__(self, acc_dict, mode, game_dir, server, language="en"):
         self.acc_dict = acc_dict
         self.mode = mode
@@ -12,6 +14,8 @@ class Execute_Program:
         
 
     def determine_mode(self, acc_keys):
+        '''This method assigns an account to a key, and determines the mode of the program
+        "Normal" or "Bot" mode, currently, only the normal mode is available.'''
         try:
             new_acc_dict = self.acc_dict
             key=0
@@ -29,6 +33,11 @@ class Execute_Program:
             raise
 
     def modify_leagueconfig(self, game_dir, language, server):
+
+        '''
+            This method modifies the config file of the game, modifying
+            the language, and server based on json info.
+        '''
 
         league_config = open(game_dir + "/Config/LeagueClientSettings.yaml")
         command_list = []
@@ -59,6 +68,13 @@ class Execute_Program:
 
 
     def normal_mode(self, new_acc_dict, game_dir, language, server):
+
+        '''
+            Finally, this method executes the game after the modification
+            of the game config file, and makes able the program to read
+            keys each 0.1 seconds, so, when an account key is pressed,
+            the program will execute another python script.
+        '''
         try:
             import os
             import login
@@ -78,7 +94,7 @@ class Execute_Program:
             
 
             for i in new_acc_dict:
-
+                #If an account key is pressed, then it executes login.py script
                 if key in new_acc_dict[i]:
                     
                     log_data = login_screen(i, new_acc_dict[i][0], language)
